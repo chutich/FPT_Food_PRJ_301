@@ -24,6 +24,14 @@
         <servlet-name>recipesController</servlet-name>
         <servlet-class>controller.recipesController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>diningTableController</servlet-name>
+        <servlet-class>controller.diningTableController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserController</servlet-name>
+        <servlet-class>controller.UserController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/MainController</url-pattern>
@@ -52,6 +60,14 @@
     <servlet-mapping>
         <servlet-name>recipesController</servlet-name>
         <url-pattern>/recipesController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>diningTableController</servlet-name>
+        <url-pattern>/diningTableController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserController</servlet-name>
+        <url-pattern>/UserController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

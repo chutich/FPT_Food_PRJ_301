@@ -24,7 +24,7 @@ public class IngredientDAO extends DBContext {
         try {
             statement = connection.prepareStatement(sql);
             resultSet = statement.executeQuery();
-            while (resultSet.next()) {                
+            while (resultSet.next()) {
                 int id = resultSet.getInt("ingredientID");
                 String name = resultSet.getString("name");
                 String unit = resultSet.getString("unit");
@@ -43,6 +43,44 @@ public class IngredientDAO extends DBContext {
             Logger.getLogger(IngredientDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    public int deleteByID(int id) {
+        connection = getConnection();
+        int resultSet = 0;
+        String sql = "DELETE FROM [dbo].[Ingredient]\n"
+                + "      WHERE ingredientID = ?";
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            resultSet = statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+        return resultSet;
+    }
+
+    public int insert(Ingredient i) {
+        int resultSet = 0;
+        connection = getConnection();
+        String sql = "INSERT INTO [dbo].[Ingredient]\n"
+                + "           ([name]\n"
+                + "           ,[unit]\n"
+                + "           ,[quantityInStock]\n)"
+                + "     VALUES\n("
+                + "           ?\n"
+                + "           ,?\n"
+                + "           ,?)";
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, i.getName());
+            statement.setString(2, "kg");
+            statement.setDouble(3, i.getQuantityInStock());
+            resultSet = statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.toString());
+        }
+        return resultSet;
     }
 
 }

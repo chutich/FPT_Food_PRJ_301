@@ -31,7 +31,7 @@
                     <a href="recipesController" style="text-decoration: none; color: black" class="nav-pill <c:if test="${requestScope.activeSection == 'recipes'}">active</c:if>" onclick="switchSection('recipes', this)">
                         <i class="fas fa-book-open"></i> Công thức
                     </a>
-                    <a href="ingredientController" style="text-decoration: none; color: black" class="nav-pill <c:if test="${requestScope.activeSection == 'inventory'}">active</c:if>" onclick="switchSection('inventory', this)">
+                    <a href="ingredientController?from=kitchen" style="text-decoration: none; color: black" class="nav-pill <c:if test="${requestScope.activeSection == 'inventory'}">active</c:if>" onclick="switchSection('inventory', this)">
                         <i class="fas fa-boxes"></i> Kiểm tra kho
                     </a>
                 </div>
